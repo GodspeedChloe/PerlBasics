@@ -1,4 +1,5 @@
 # This is the Perl Tut file.  Notes will be in comments.
+# This tutorial uses the tutorial here: https://www.youtube.com/watch?v=WEghIXs8F6c
 
 # Important to note is that to use Perl it is best to use Perl Brew to manage versions of Perl so that OS Perl versions and files are not edited, causing massive OS failure.
 # This is accomplished by using the command:
