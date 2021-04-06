@@ -28,16 +28,16 @@ print "Hello World\n";
 # Scalars : an individual piece of data
 # The variable can start with any letter or underscore before a number is used
 
-my $name = 'Chloe'
+my $name = 'Chloe';
 
-my ($age, $street) = (90,'123 Main St')
+my ($age, $street) = (90,'123 Main St');
 
-my $my_info = "$name lives on \"$street\"\n"
+my $my_info = "$name lives on \"$street\"\n";
 # There is a way to add the double quotes without escaping them!
 #my_info is already defined, no need to use 'my'
-$my_info = qq{$name lives on "$street"\n}
+$my_info = qq{$name lives on "$street"\n};
 
-print $my_info
+print $my_info;
 
 # Can define very long strings over multiple lines!
 # First, define the word that will indicate the end of the entry
@@ -50,7 +50,7 @@ END
 say $bunch_of_info;
 
 # Biggest integer to store in Perl
-my $big_int = 18446744073709551615
+my $big_int = 18446744073709551615;
 
 # printf!
 # %c : Character
@@ -59,7 +59,7 @@ my $big_int = 18446744073709551615
 # %u : Unsigned integer
 # %f : Floating Point (Decimal Notation)
 # %e : Floating Point (Scientific Notation)
-printf("%u \n", $big_int + 1)
+printf("%u \n", $big_int + 1);
 # Wont go up, already at max number
 
 
@@ -72,9 +72,9 @@ printf("%.16f \n", $big_float + .1000000000000001);
 my $first = 1;
 my $second = 2;
 
-($first, $second) = ($second, $first)
+($first, $second) = ($second, $first);
 
-say "$first $second"
+say "$first $second";
 
 # Math functions
 
@@ -94,3 +94,122 @@ say "INT 6.45 = ", int(6.45);
 say "LOG 2 = ", log 2;
 say "Random between 0 - 10 = ", int(rand 11);
 say "SQRT 9 = ", sqrt 9;
+
+# Can do increments, etc
+my $rand_num = 5;
+$rand_num += 1;
+$rand_num *= 1;
+
+# If operation after the digit, will print before operation
+# If operation before the digit, will print after the operation
+say "6++ = ", $rand_num++;
+say "++6 = ", ++$rand_num;
+say "6-- = ", $rand_num--;
+say "--6 = ", --$rand_num;
+
+# Parenteses also work.
+say "3 + 2 * 5 = ", 3 + 2 * 5;
+say "(3 + 2) * 5 = ", (3 + 2) * 5;
+
+
+
+# Logic
+
+# Perl considers the following to be "false"
+my $my_bool = undef;
+$my_bool = 0;
+$my_bool = 0.0;
+$my_bool = "";
+$my_bool = "0";
+
+# Here are the following logical operators
+# !, &&, ||, ==, <, >, >=, <=, !=
+my $age = 80;
+my $is_not_intoxicated = 1;
+my $age_last_exam = 16;
+
+if($age < 16){
+  say "You can't drive";
+} elsif(!$is_not_intoxicated){
+  say "You can't drive";
+} else {
+  say "You can drive";
+}
+
+if (($age >= 1) && ($age < 16)) {
+  say "You can't drive";
+} elsif (!$is_not_intoxicated) {
+  say "You can't drive";
+} elsif (($age >= 80) && (($age > 100) ||
+(($age - $age_last_exam) > 5))) {
+  say "You can't drive";
+} else {
+  say "You can drive";
+}
+
+# Operations for strings
+# eq, ne, lt, le, gt, ge
+# (equal, not equal, less than, less than or equal to...)
+
+if ('a' eq 'b') {
+  say "a equals b";
+} else {
+  say "a doesn't equal b";
+}
+
+unless(!$is_not_intoxicated) {
+  say "Get sober!";
+}
+
+# Ternary operator
+say (($age > 18) ? "Can Vote" : "Can't Vote");
+
+# Looping
+
+for(my $i = 0; $i < 10; $i++) {
+  say $i;
+}
+
+my $i = 1;
+
+# 'next' is like continue, 'last' is like break
+while($i < 10){
+  if($i % 2 == 0) {
+    $i++;
+
+    next;
+  }
+
+  if($i == 7){last;}
+  say $i;
+  $i++;
+}
+
+my $lucky_num = 7;
+
+my $guess;
+
+do {
+  say "Guess a Number Between 1 and 10";
+
+  # Get input from user
+  $guess = <STDIN>;
+} while $guess != $lucky_num;
+
+say "You guessed 7!";
+
+my $age_old = 18;
+
+given($age_old) {
+  when($_ > 16) {
+    say "Drive";
+    # continue lets the execution look at the next when condition
+    continue;
+  }
+  when($_ > 17){say "Go Vote";}
+  default {say "Nothing Special";}
+}
+
+# Strings
+
+
