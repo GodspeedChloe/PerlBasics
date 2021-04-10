@@ -1,30 +1,32 @@
-# This is the Perl Tut file.  Notes will be in comments.
+# This is the Perl Tut basics file.  Notes will be in comments.
 # This tutorial uses the tutorial here: https://www.youtube.com/watch?v=WEghIXs8F6c
 
 # Important to note is that to use Perl it is best to use Perl Brew to manage versions of Perl so that OS Perl versions and files are not edited, causing massive OS failure.
 # This is accomplished by using the command:
-# curl -kL http://xrl.us/perlbrewinstall | bash
-# Then edit your bash profile file and add "source ~/perl5/perlbrew/etc/bashrc"
-# To install a version you want to use, simply the command "perlbrew install perl-Xx.Yy.Zz
+# "curl -kL http://xrl.us/perlbrewinstall | bash"
+# Then edit your bash profile file and add this line:
+# "source ~/perl5/perlbrew/etc/bashrc"
+# To install a version you want to use, simply the command:
+# "perlbrew install perl-Xx.Yy.Zz
 
 
-# make sure we make good code with the following 'pragmas':
+# Make sure we make good code with the following 'pragmas':
 use strict;
 use warnings;
 use diagnostics;
 
-# define some functions
+# Define some functions
 use feature 'say';
 
-# define switch function
+# Define switch function
 use feature "switch";
 
-# force feature
+# Force feature
 # use v5.30;
 
-print "Hello World\n";
+print "Hello World!\n";
 
-# Scalars, Arrays, Hashes (the 3 main data types)
+# Scalars, Arrays, Hashes are the 3 main data types
 
 # Scalars : an individual piece of data
 # The variable can start with any letter or underscore before a number is used
@@ -111,106 +113,3 @@ say "--6 = ", --$rand_num;
 # Parenteses also work.
 say "3 + 2 * 5 = ", 3 + 2 * 5;
 say "(3 + 2) * 5 = ", (3 + 2) * 5;
-
-
-
-# Logic
-
-# Perl considers the following to be "false"
-my $my_bool = undef;
-$my_bool = 0;
-$my_bool = 0.0;
-$my_bool = "";
-$my_bool = "0";
-
-# Here are the following logical operators
-# !, &&, ||, ==, <, >, >=, <=, !=
-my $age = 80;
-my $is_not_intoxicated = 1;
-my $age_last_exam = 16;
-
-if($age < 16){
-  say "You can't drive";
-} elsif(!$is_not_intoxicated){
-  say "You can't drive";
-} else {
-  say "You can drive";
-}
-
-if (($age >= 1) && ($age < 16)) {
-  say "You can't drive";
-} elsif (!$is_not_intoxicated) {
-  say "You can't drive";
-} elsif (($age >= 80) && (($age > 100) ||
-(($age - $age_last_exam) > 5))) {
-  say "You can't drive";
-} else {
-  say "You can drive";
-}
-
-# Operations for strings
-# eq, ne, lt, le, gt, ge
-# (equal, not equal, less than, less than or equal to...)
-
-if ('a' eq 'b') {
-  say "a equals b";
-} else {
-  say "a doesn't equal b";
-}
-
-unless(!$is_not_intoxicated) {
-  say "Get sober!";
-}
-
-# Ternary operator
-say (($age > 18) ? "Can Vote" : "Can't Vote");
-
-# Looping
-
-for(my $i = 0; $i < 10; $i++) {
-  say $i;
-}
-
-my $i = 1;
-
-# 'next' is like continue, 'last' is like break
-while($i < 10){
-  if($i % 2 == 0) {
-    $i++;
-
-    next;
-  }
-
-  if($i == 7){last;}
-  say $i;
-  $i++;
-}
-
-my $lucky_num = 7;
-
-my $guess;
-
-do {
-  say "Guess a Number Between 1 and 10";
-
-  # Get input from user
-  $guess = <STDIN>;
-} while $guess != $lucky_num;
-
-say "You guessed 7!";
-
-my $age_old = 18;
-
-given($age_old) {
-  when($_ > 16) {
-    say "Drive";
-    # continue lets the execution look at the next when condition
-    continue;
-  }
-  when($_ > 17){say "Go Vote";}
-  default {say "Nothing Special";}
-}
-
-# Strings
-
-
