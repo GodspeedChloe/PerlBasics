@@ -55,4 +55,31 @@ perlstringtut4.pl :
         * joining an array of strings with a specified string
         * increment/decrementing a letter
 
-    
+perlarraytut5.pl :
+
+    - Basics of arrays
+      * defining an array
+      * multiple data types supported
+      * adding values at an index/changing values at an index
+    - Looping through arrays
+      * for loop
+      * foreach loop
+    - Getting a slice given specific indices
+    - Getting length of an array
+    - Saving an array's values to sigils
+    - Adding/removing operations
+      * pop (remove last)
+      * push (add last)
+      * shift (remove first)
+      * unshift (add first)
+    - Splicing a section from an array given a start index and length
+    - String-Array conversions
+      * join creates a string from an array
+      * split creates an array from a string
+    - Misc. common functions
+      * reverse
+      * sort
+    - Grepping
+      * grep selects out values from an array which meet a criteria into a new array
+    - Mapping
+      * map does an operation unto every value in an array into a new array    

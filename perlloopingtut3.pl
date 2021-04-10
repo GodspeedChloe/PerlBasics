@@ -59,6 +59,13 @@ while($i < 10){
   $i++;
 }
 
+# For each loops
+say "\nForeach loop tutorial";
+my @my_info = ('Chloe', '123 Main St.', 44, q{5'11"});
+
+foreach my $info (@my_info) {
+    say $info;
+}
 
 say "\nDo, While loop tutorial (featuring STDIN!)";
 my $lucky_num = 7;
