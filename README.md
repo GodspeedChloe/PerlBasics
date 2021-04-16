@@ -83,3 +83,16 @@ perlarraytut5.pl :
       * grep selects out values from an array which meet a criteria into a new array
     - Mapping
       * map does an operation unto every value in an array into a new array    
+
+perlhashestut6.pl
+    
+    - Basics of hashes
+      * defining a hash
+      * accessing a value given a key
+      * adding/deleting entries
+    - Iterating through k,v pairs
+    - Creating arrays from hashes
+      * Specific "slices" from the hash
+      * Whole hash to array
+    - Existential checks in hashes
+    - Cycling through a hash's key set
