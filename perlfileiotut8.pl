@@ -11,7 +11,6 @@
 
 
 # Make sure we make good code with the following 'pragmas':
-use strict;
 use warnings;
 use diagnostics;
 
@@ -20,6 +19,8 @@ use feature 'say';
 
 # Define switch function
 use feature "switch";
+
+use Tie::File;
 
 # Force feature
 # use v5.30;
@@ -71,16 +72,20 @@ while(my $info = <$fh>) {
 close $fh or die "Couldn't close file : $_";
 
 # Lets reset the file for handling
+my $bunch_of_info = <<"END";
+Sally:Janitor:1
+Sue:Secretary:2
+Ron:Teacher:3
+Julie:Principal:4
+END
+my @lines;
+
+# Use Tie::File module to delete last line easy
 open $fh, '+<', $emp_file
   or die "Can't Open file : $_";
+tie @lines, Tie::File, $fh
+  or die "Can't update $fh: $!";
+delete $lines[-1];
 seek $fh, 0, 0;
-print $fh "Sally:Janitor:1\n";
-seek $fh, 1, 0;
-print $fh "Sue:Secretary:2\n";
-seek $fh, 2, 0;
-print $fh "Ron:Teacher:3\n";
-seek $fh, 3, 0;
-print $fh "Julie:Principal:4\n";
-seek $fh, 4, 0;
-print $fh "";
+print $fh $bunch_of_info;
 close $fh or die "Couldn't close file : $_";
