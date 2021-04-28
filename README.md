@@ -9,7 +9,7 @@ For the step by step construction of these you can view the source video here: h
 The tutorials to read through and run are in increasing numerical order.  For your convenience here is the breakdown:
 
 
-perlbasicstut1.pl :
+tut1_basics.pl :
 
     - how to define 'sigils' (variables)
     - how to print strings/things to stdout
@@ -22,7 +22,7 @@ perlbasicstut1.pl :
     - swapping scalar values cleanly using (x,y) = (y,x)
     
     
-perllogictut2.pl :
+tut2_logic.pl :
 
     - which values in Perl evaluate to false
     - what basic logic comparators are supported in Perl
@@ -32,7 +32,7 @@ perllogictut2.pl :
     - ternary operator in Perl
 
 
-perlloopingtut3.pl :
+tut3_looping.pl :
 
     - the for loop
     - the while loop
@@ -41,7 +41,7 @@ perlloopingtut3.pl :
     - the 'given, when' loop (experimental)
     
     
-perlstringtut4.pl :
+tut4_strings.pl :
 
     - built in functions in Perl for basic string manipulation and processing
         * length
@@ -55,7 +55,7 @@ perlstringtut4.pl :
         * joining an array of strings with a specified string
         * increment/decrementing a letter
 
-perlarraytut5.pl :
+tut5_arrays.pl :
 
     - Basics of arrays
       * defining an array
@@ -84,7 +84,7 @@ perlarraytut5.pl :
     - Mapping
       * map does an operation unto every value in an array into a new array    
 
-perlhashestut6.pl
+tut6_hashes.pl
     
     - Basics of hashes
       * defining a hash
@@ -96,3 +96,35 @@ perlhashestut6.pl
       * Whole hash to array
     - Existential checks in hashes
     - Cycling through a hash's key set
+
+tut7_subroutines.pl
+
+    - Basics of subroutines
+      * defining a subroutine
+      * accessing arguments of a subroutine
+      * setting default values
+      * calling a subroutine
+    - Using state scalars to store values
+    - Returning multiple values
+    - Recursive functions
+
+tut8_fileio.pl
+
+    - Opening/closing files with file handlers
+      * '<'  is read only
+      * '>>' is appending
+      * '+<' is read and write
+    - Iterating through lines in a file
+      * 'seek' to go to a specific place in the file
+    - Tie::File module
+      * deletion of last line (tie also worth researching)
+
+
+tut9_oo.pl
+
+    - How to define 'lib's and packages
+    - Object basics
+      * importing objects
+      * writing constructors
+      * getters and setters
+    - Inheritance
